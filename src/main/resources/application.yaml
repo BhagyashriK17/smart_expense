@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: smart_expense
+
+server:
+  port: 8085
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/expense_db
+
+  cache:
+    type: redis
+
+  redis:
+    host: localhost
+    port: 6379
+
+  logging:
+    level:
+      org.springframework.cache: DEBUG

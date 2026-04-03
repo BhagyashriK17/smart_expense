@@ -29,6 +29,7 @@ public class ExpenseController {
         return service.save(expense);
     }
 
+
     @Operation(summary = "Get all expenses")
     @GetMapping
     @Cacheable("expenses")
@@ -36,11 +37,13 @@ public class ExpenseController {
         return service.getAll();
     }
 
+
     @Operation(summary = "Convert INR to USD using cached exchange rate")
     @GetMapping("/convert/{amount}")
     public double convert(@PathVariable double amount) {
         return service.convertToUSD(amount);
     }
+
 
     @Operation(summary = "Refresh the Cache")
     @PostMapping("/refresh-cache")
@@ -48,6 +51,7 @@ public class ExpenseController {
         currencyService.clearCache();
         return "Cache cleared";
     }
+
 
     @Operation(summary = "Get the monthly total of expense")
     @GetMapping("/monthly-total")
